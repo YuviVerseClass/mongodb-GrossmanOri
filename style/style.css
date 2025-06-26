@@ -21,3 +21,16 @@ body {
   justify-content: space-between;
   border-bottom: 1px solid #ddd;
 }
+#task-list li {
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+
+#task-list li button {
+  text-decoration: none !important;
+}
+#task-list li span {
+  text-decoration: inherit; 
+}
