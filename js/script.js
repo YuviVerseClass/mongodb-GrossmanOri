@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var taskList = document.getElementById("task-list");
 
   function loadTasks() {
-    fetch("/api/tasks")
+    fetch("http://localhost:3000/api/tasks")
       .then(function(response) {
         return response.json();
       })
@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", function() {
           var delBtn = document.createElement("button");
           delBtn.textContent = "Delete Task";
           delBtn.addEventListener("click", function (e) {
-          e.stopPropagation();
-          deleteTask(task._id);
+            e.stopPropagation();
+            deleteTask(task._id);
           });
 
           li.appendChild(delBtn);
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function addTask(title) {
-    fetch("/api/tasks", {
+    fetch("http://localhost:3000/api/tasks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: title })
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function toggleTask(id) {
-    fetch("/api/tasks/" + id, { method: "PATCH" })
+    fetch("http://localhost:3000/api/tasks/" + id, { method: "PATCH" })
       .then(function() {
         loadTasks();
       })
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function deleteTask(id) {
-    fetch("/api/tasks/" + id, { method: "DELETE" })
+    fetch("http://localhost:3000/api/tasks/" + id, { method: "DELETE" })
       .then(function() {
         loadTasks();
       })
